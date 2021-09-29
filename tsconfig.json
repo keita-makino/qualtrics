@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "target": "es2019",
+    "lib": ["esnext"],
+    "outDir": "dist",
+    "module": "commonjs",
+    "forceConsistentCasingInFileNames": true,
+    "moduleResolution": "node",
+    "sourceMap": true,
+    "strictNullChecks": true
+  },
+  "include": ["./src"]
+}
