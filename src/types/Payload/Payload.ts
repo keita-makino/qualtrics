@@ -1,16 +1,12 @@
-import { type, string, boolean, array } from "io-ts";
+import { type, string, boolean, array, unknown, Int } from "io-ts";
 import { option } from "io-ts-types";
-import { Choice } from "../question/Choice";
-import { DataExportTag } from "../question/DataExportTag";
-import { QuestionId } from "../question/QuestionID";
-import { QuestionType } from "../question/QuestionType";
-import { Selector } from "../question/Selector";
-import { SubSelector } from "../question/SubSelector";
+import { Choice } from "../Question/Choice";
+import { QuestionType } from "../Question/QuestionType";
+import { Selector } from "../Question/Selector";
+import { SubSelector } from "../Question/SubSelector";
 
 export const Payload = type({
   QuestionText: string,
-  QuestionId: QuestionId,
-  DataExportTag: DataExportTag,
   QuestionType: QuestionType,
   Selector: Selector,
   SubSelector: option(SubSelector),
@@ -19,4 +15,16 @@ export const Payload = type({
     Hidden: boolean,
   }),
   Choices: array(Choice),
+  Validation: type({
+    Settings: type({
+      ForceResponse: boolean,
+      ForceResponseType: boolean,
+      Type: string,
+    }),
+  }),
+  GradingData: unknown,
+  Language: unknown,
+  NextChoiceId: Int,
+  NextAnswerId: Int,
+  NumberOfQuestions: Int,
 });

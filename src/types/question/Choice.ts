@@ -1,24 +1,32 @@
-import { type, string, array } from "io-ts";
+import { type, string, array, record, boolean } from "io-ts";
 import { Conjuction } from "./Conjuction";
 import { Operator } from "./Operator";
-import { QuestionId } from "./QuestionID";
 
 export const Choice = type({
   ChoiceText: string,
-  DisplayLogic: array(
-    array(
+  DisplayLogic: type({
+    LogicGroups: array(
       type({
-        LogicType: string,
-        QuestionId: QuestionId,
-        QuestionIsInLoop: string,
-        ChoiceLocator: string,
-        Operator: Operator,
-        QuestionIDFromLocator: QuestionId,
-        LeftOperand: string,
+        key: string,
+        Logics: array(
+          type({
+            key: string,
+            LogicType: string,
+            QuestionId: string,
+            QuestionIsInLoop: string,
+            ChoiceLocator: string,
+            Operator: Operator,
+            QuestionIDFromLocator: string,
+            LeftOperand: string,
+            Type: string,
+            Description: string,
+            Conjuction: Conjuction,
+          })
+        ),
         Type: string,
-        Description: string,
-        Conjuction: Conjuction,
       })
-    )
-  ),
+    ),
+    Type: string,
+    inPage: boolean,
+  }),
 });
