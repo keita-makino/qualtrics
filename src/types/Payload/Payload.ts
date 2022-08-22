@@ -1,9 +1,9 @@
 import { type, string, boolean, array, unknown, Int } from "io-ts";
 import { option } from "io-ts-types";
-import { Choice } from "../Question/Choice";
-import { QuestionType } from "../Question/QuestionType";
-import { Selector } from "../Question/Selector";
-import { SubSelector } from "../Question/SubSelector";
+import { Choice } from "../question/Choice";
+import { QuestionType } from "../question/QuestionType";
+import { Selector } from "../question/Selector";
+import { SubSelector } from "../question/SubSelector";
 
 export const Payload = type({
   QuestionText: string,
